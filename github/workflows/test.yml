@@ -1,0 +1,18 @@
+# Runs the vectors, the hostile cases and the backup reader on every push and
+# pull request, in public: the history of these runs is part of the record.
+name: Test
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: swift test
+      - name: didji-open links nothing that reaches a network
+        run: |
+          swift build -c release --product didji-open
+          otool -L .build/release/didji-open
+          ! otool -L .build/release/didji-open | grep -vE "Foundation|CryptoKit|libSystem|libswift|/usr/lib/|didji-open:"
