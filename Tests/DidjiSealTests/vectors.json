@@ -1,0 +1,242 @@
+{
+  "codeReadings" : [
+    {
+      "code" : "00010203-04050607-08090A0B-0C0D0E0F-10111213-14151617-18191A1B-1C1D1E1F-630DCD29",
+      "reads" : "key"
+    },
+    {
+      "code" : "20212223-24252627-28292A2B-2C2D2E2F-30313233-34353637-38393A3B-3C3D3E3F-EA748AED",
+      "reads" : "kit"
+    },
+    {
+      "code" : "20202223-24252627-28292A2B-2C2D2E2F-30313233-34353637-38393A3B-3C3D3E3F-EA748AED",
+      "reads" : "mistyped"
+    },
+    {
+      "code" : "not a code",
+      "reads" : "notACode"
+    }
+  ],
+  "contexts" : [
+    {
+      "bytes" : "50565345414c0101111111112222333344445555555555550000000003",
+      "format2Bytes" : "50565345414c0201111111112222333344445555555555550000000003",
+      "id" : "11111111-2222-3333-4444-555555555555",
+      "kind" : 1,
+      "name" : "item",
+      "revision" : 3,
+      "wrapBytes" : "50565345414c010111111111222233334444555555555555000000000301"
+    },
+    {
+      "bytes" : "50565345414c01031111111122223333444455555555555501aaaaaaaabbbbccccddddeeeeeeeeeeee00000001",
+      "id" : "11111111-2222-3333-4444-555555555555",
+      "kind" : 3,
+      "name" : "attachmentData",
+      "parent" : "AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE",
+      "revision" : 1
+    },
+    {
+      "bytes" : "50565345414c010e0123456789abcdef0123456789abcdef01aaaaaaaabbbbccccddddeeeeeeeeeeee000000000000000200000005",
+      "chunkCount" : 5,
+      "chunkIndex" : 2,
+      "id" : "01234567-89AB-CDEF-0123-456789ABCDEF",
+      "kind" : 14,
+      "name" : "mediaChunk",
+      "parent" : "AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE",
+      "revision" : 0
+    }
+  ],
+  "keys" : {
+    "backup" : "404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f",
+    "kit" : "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f",
+    "vault" : "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+    "wrong" : "606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f"
+  },
+  "keyWraps" : [
+    {
+      "context" : "50564b495401010c6564313933623762363932610c363330646364323936366334",
+      "firstName" : "ed193b7b692a",
+      "opensTo" : "vault",
+      "purpose" : 1,
+      "sealed" : "d7a811a4c676571683c85e3342f9f13aa10c467fcba8efb6ec357a2f509e17aa0d0b87014c117d562c461778615c04963cad51933eb9d68c0c8844d0",
+      "secondName" : "630dcd2966c4",
+      "under" : "kit"
+    },
+    {
+      "context" : "50564b495401040c6361326134666537323766610c656431393362376236393261",
+      "firstName" : "ca2a4fe727fa",
+      "opensTo" : "backup",
+      "purpose" : 4,
+      "sealed" : "f62dbfbe79c359b0158319f0bd5729b6967a8c78b6c2664b94474c0cba9e2650710c243dce7f72773eca4636555d065e2d02fb95d36288d874ce0eab",
+      "secondName" : "ed193b7b692a",
+      "under" : "kit"
+    }
+  ],
+  "mustFail" : [
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "bound, tag changed",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa897",
+      "why" : "one bit of the tag"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "bound, ciphertext changed",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01863d7db11ca03a3c0fe6921e0dff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+      "why" : "one bit of the ciphertext"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "bound, nonce changed",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01873d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+      "why" : "one bit of the nonce"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "bound, cut short",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa8",
+      "why" : "the last byte gone"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "bound, marker stripped",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+      "why" : "the seven-byte marker taken off, to pass it as the form from before binding"
+    },
+    {
+      "context" : "item",
+      "key" : "wrong",
+      "name" : "bound, wrong key",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+      "why" : "opened with another key"
+    },
+    {
+      "context" : "attachmentData",
+      "key" : "vault",
+      "name" : "bound, another record",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+      "why" : "opened as another record (the attachmentData context)"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "wrapped, format changed",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01003cd4cc27bc048b78829d222efba14c938249427c83398a4ec8b3c9826cf77b6bf76db0322035b8b77acb87cbbf7f2a8673e357bd4ab6c308106f260c6f60115426b3f9bb7f7fc9dd45564b1ae8203df9f9681b4b315819fad7611ec7ee672baf0ac5386e6be774d8c823b67671130cda1715dea6b1c87bd820beff2541ed4b0e41d6c5e5857887ef819f20e7ac226383aab46a6dbd56250dba55",
+      "why" : "format byte 2 changed to 1"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "wrapped, length changed",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c02003dd4cc27bc048b78829d222efba14c938249427c83398a4ec8b3c9826cf77b6bf76db0322035b8b77acb87cbbf7f2a8673e357bd4ab6c308106f260c6f60115426b3f9bb7f7fc9dd45564b1ae8203df9f9681b4b315819fad7611ec7ee672baf0ac5386e6be774d8c823b67671130cda1715dea6b1c87bd820beff2541ed4b0e41d6c5e5857887ef819f20e7ac226383aab46a6dbd56250dba55",
+      "why" : "the wrapped key length one larger"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "wrapped, wrapped key changed",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c02003cd5cc27bc048b78829d222efba14c938249427c83398a4ec8b3c9826cf77b6bf76db0322035b8b77acb87cbbf7f2a8673e357bd4ab6c308106f260c6f60115426b3f9bb7f7fc9dd45564b1ae8203df9f9681b4b315819fad7611ec7ee672baf0ac5386e6be774d8c823b67671130cda1715dea6b1c87bd820beff2541ed4b0e41d6c5e5857887ef819f20e7ac226383aab46a6dbd56250dba55",
+      "why" : "one bit of the record key's wrap"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "before binding",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "440f876413131b4b717b3e2b2938784d302fdd5516a9b3c489a137b4d4464cc8896341a6f9b299e2a4c187bb9c94804115a2786fe50fe55921ff6d1ffdd765bde9534283679b6d1cea5da15bfea611d61981a60244b58d3a3477a2a178",
+      "why" : "the form from before binding, refused since 25 November 2026"
+    },
+    {
+      "context" : "item",
+      "key" : "vault",
+      "name" : "later format",
+      "opener" : "record",
+      "refusedAs" : "newerFormat",
+      "sealed" : "50565345414c09863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+      "why" : "a format byte this version does not know"
+    },
+    {
+      "context" : "item",
+      "key" : "backup",
+      "name" : "deterministic, changed",
+      "opener" : "record",
+      "refusedAs" : "unreadable",
+      "sealed" : "50565345414c01165bf51f047240adcd889cffe984f9aac925bb1430fba1fc80a144159b6f022160882100aeab7d07c50c19f9330111f5f08175b04293d2f946dfd2280c36896744aee6f6da8a1bfa7eb6b9a201a6d93067a890524271f8eed24b079f95",
+      "why" : "one bit of a backup's deterministic seal"
+    },
+    {
+      "firstName" : "ed193b7b692a",
+      "key" : "kit",
+      "name" : "key wrap, changed",
+      "opener" : "keyWrap",
+      "purpose" : 1,
+      "refusedAs" : "unreadable",
+      "sealed" : "d7a811a4c676571683c85e3342f9f13aa10c467fcba8efb6ec357a2f509e17aa0d0b87014c117d562c461778615c04963cad51933eb9d68c0c8844d1",
+      "secondName" : "630dcd2966c4",
+      "why" : "one bit of the wrap"
+    },
+    {
+      "firstName" : "ed193b7b692a",
+      "key" : "kit",
+      "name" : "key wrap, another purpose",
+      "opener" : "keyWrap",
+      "purpose" : 2,
+      "refusedAs" : "unreadable",
+      "sealed" : "d7a811a4c676571683c85e3342f9f13aa10c467fcba8efb6ec357a2f509e17aa0d0b87014c117d562c461778615c04963cad51933eb9d68c0c8844d0",
+      "secondName" : "630dcd2966c4",
+      "why" : "opened as purpose 2"
+    },
+    {
+      "firstName" : "630dcd2966c4",
+      "key" : "kit",
+      "name" : "key wrap, names swapped",
+      "opener" : "keyWrap",
+      "purpose" : 1,
+      "refusedAs" : "unreadable",
+      "sealed" : "d7a811a4c676571683c85e3342f9f13aa10c467fcba8efb6ec357a2f509e17aa0d0b87014c117d562c461778615c04963cad51933eb9d68c0c8844d0",
+      "secondName" : "ed193b7b692a",
+      "why" : "its two names the other way round"
+    }
+  ],
+  "names" : {
+    "kitCode" : "20212223-24252627-28292A2B-2C2D2E2F-30313233-34353637-38393A3B-3C3D3E3F-EA748AED",
+    "kitID" : "ed193b7b692a",
+    "vaultKeyID" : "630dcd2966c4",
+    "vaultRecoveryCode" : "00010203-04050607-08090A0B-0C0D0E0F-10111213-14151617-18191A1B-1C1D1E1F-630DCD29"
+  },
+  "plaintext" : "7b227469746c65223a2246726f6e7420646f6f72222c226669656c6473223a5b7b226c6162656c223a22436f6465222c2276616c7565223a2234353132227d5d7d",
+  "seals" : {
+    "bound" : "50565345414c01863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+    "deterministicUnderBackupKey" : "50565345414c01165bf51f047240adcd889cffe984f9aac925bb1430fba1fc80a144159b6f022160882100aeab7d07c50c19f9330111f5f08175b04293d2f946dfd2280c36896744aee6f6da8a1bfa7eb6b9a201a6d93067a890524271f8eed24b079f94",
+    "laterFormat" : "50565345414c09863d7db11ca03a3c0fe6921e0cff8aedb450f3f6d7367aedf7f837a669ef21b3cc2ce22ed2060dbc00dac6e10f8d43c4e4a44aff982e94327e96a189a5df9b247104d47c6c59956a113bed066a05bb1537d5476f7e9dbd311dc2afa896",
+    "legacy" : "440f876413131b4b717b3e2b2938784d302fdd5516a9b3c489a137b4d4464cc8896341a6f9b299e2a4c187bb9c94804115a2786fe50fe55921ff6d1ffdd765bde9534283679b6d1cea5da15bfea611d61981a60244b58d3a3477a2a178",
+    "wrapped" : "50565345414c02003cd4cc27bc048b78829d222efba14c938249427c83398a4ec8b3c9826cf77b6bf76db0322035b8b77acb87cbbf7f2a8673e357bd4ab6c308106f260c6f60115426b3f9bb7f7fc9dd45564b1ae8203df9f9681b4b315819fad7611ec7ee672baf0ac5386e6be774d8c823b67671130cda1715dea6b1c87bd820beff2541ed4b0e41d6c5e5857887ef819f20e7ac226383aab46a6dbd56250dba55"
+  },
+  "source" : "Generated from personalvault main at 152061e3, 25 November 2026, from Common\/SealContext.swift, Common\/VaultCrypto.swift, Shared\/VaultKeyStore.swift (RecoveryCode) and Shared\/RecoveryKitRecord.swift (KitSeal), compiled unchanged."
+}
