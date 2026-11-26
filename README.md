@@ -45,6 +45,26 @@ vault unlocked**: keep it as safe as the kit, and delete it when done.
 nothing else, which `otool -L .build/release/didji-open` shows. Building it yourself, as above, is
 the way to be sure of what you are running.
 
+## No backup of your own? Try the sample
+
+The tests carry a real backup the app made of a small made-up vault: Sam Taylor, a login, a sailing
+club and a scanned statement. Its recovery kit's code is published here on purpose, so anyone can
+watch `didji-open` work without owning a vault. After the build above:
+
+```bash
+.build/release/didji-open Tests/DidjiSealTests/Fixtures/backup-2026-11-16.didjibackup /tmp/didji-sample
+```
+
+When it asks for the code, paste:
+
+```text
+05101B26-313C4752-5D68737E-89949FAA-B5C0CBD6-E1ECF702-0D18232E-39444F5A-F63E64EB
+```
+
+It names recovery kit `793a9901145f`, checks the file whole, and writes what the vault holds into
+`/tmp/didji-sample`: two records, Sam Taylor, a category, the settings and the statement. Then try
+it again with one character of the code changed, and watch it refuse.
+
 ## Checking it
 
 ```bash
